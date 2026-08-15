@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
 
-Sitemap: https://www.integraenergyindustry.com/sitemap.xml
+Sitemap: https://www.solarisenergyco.com/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 3

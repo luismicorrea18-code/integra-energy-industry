@@ -1,4 +1,8 @@
-.DS_Store
-.vscode/
-.idea/
+node_modules/
+.vercel/
+_debug.html
+_debug2.html
+_m390.html
+_preview.html
 *.log
+.DS_Store

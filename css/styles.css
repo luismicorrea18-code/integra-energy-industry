@@ -1,7 +1,8 @@
 :root {
-  --color-primary: #2E9E3F;
-  --color-secondary: #15695C;
-  --color-accent: #F2A719;
+  --color-primary: #6DC82A;
+  --color-secondary: #1AADB8;
+  --color-accent: #F5921E;
+  --color-navy: #1B2F6E;
   --color-ink: #06120E;
   --color-border: #E2E8F0;
 }
@@ -18,7 +19,7 @@
   position: fixed;
   top: 0; left: 0;
   width: 6px; height: 6px;
-  background: #F2A719;
+  background: #F5921E;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -31,7 +32,7 @@
   position: fixed;
   top: 0; left: 0;
   width: 40px; height: 40px;
-  border: 1.5px solid rgba(242,167,25,0.5);
+  border: 1.5px solid rgba(245,146,30,0.5);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
@@ -43,7 +44,7 @@
               opacity 0.3s ease;
 }
 .cursor-dot.is-hover { width: 10px; height: 10px; }
-.cursor-ring.is-hover { width: 58px; height: 58px; border-color: rgba(242,167,25,0.75); }
+.cursor-ring.is-hover { width: 58px; height: 58px; border-color: rgba(245,146,30,0.75); }
 .cursor-dot.is-chip { background: #fff; mix-blend-mode: difference; }
 .cursor-ring.is-chip { width: 68px; height: 68px; border-color: rgba(255,255,255,0.3); }
 @media (hover: none), (pointer: coarse) {
@@ -57,16 +58,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(242, 167, 25, 0.2);
+  background: rgba(245, 146, 30, 0.2);
   color: var(--color-ink);
 }
 
 h1, h2, h3, h4, .font-heading {
-  font-family: 'Space Grotesk', sans-serif;
-  font-feature-settings: 'kern' 1, 'ss01' 1;
+  font-family: 'Barlow Condensed', 'Barlow Condensed', sans-serif;
+  font-feature-settings: 'kern' 1;
 }
 
 .font-mono, .stat-label, .badge-tag {
@@ -102,7 +104,9 @@ header[data-state="scrolled"] button#menu-toggle {
   color: #fff;
 }
 header[data-state="top"] {
-  background-color: transparent;
+  background-color: rgba(6,18,14,0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 header[data-state="top"] .nav-link {
   color: #e2e8f0;
@@ -112,14 +116,14 @@ header[data-state="top"] .text-ink {
 }
 
 @media (min-width: 0px) {
-  header { color: #1E293B; }
+  header { color: rgba(255,255,255,0.85); }
 }
 
 .nav-link {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  color: #334155;
+  color: rgba(255,255,255,0.75);
   transition: color 0.2s ease;
   cursor: pointer;
 }
@@ -128,8 +132,8 @@ header[data-state="top"] .text-ink {
 .mobile-nav-link {
   padding: 0.75rem 0.5rem;
   font-weight: 600;
-  color: #1E293B;
-  border-bottom: 1px solid var(--color-border);
+  color: rgba(255,255,255,0.8);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   cursor: pointer;
 }
 .mobile-nav-link:last-of-type { border-bottom: none; }
@@ -187,10 +191,10 @@ header[data-state="top"] .text-ink {
 .btn-accent {
   background-color: var(--color-accent);
   color: #fff;
-  box-shadow: 0 8px 20px -6px rgba(242, 167, 25, 0.45);
+  box-shadow: 0 8px 20px -6px rgba(245, 146, 30, 0.45);
 }
 .btn-accent:hover {
-  background-color: #C98A0E;
+  background-color: #D07010;
   transform: translateY(-1px);
 }
 .btn-accent:disabled {
@@ -246,8 +250,8 @@ select:focus-visible {
 }
 
 .hero-glow {
-  background: radial-gradient(60% 50% at 80% 10%, rgba(242,167,25,0.22), transparent 70%),
-              radial-gradient(40% 40% at 10% 90%, rgba(46,158,63,0.25), transparent 70%);
+  background: radial-gradient(60% 50% at 80% 10%, rgba(245,146,30,0.22), transparent 70%),
+              radial-gradient(40% 40% at 10% 90%, rgba(109,200,42,0.25), transparent 70%);
 }
 
 /* ===== Hero Scroll Sequence (Apple-style) ===== */
@@ -270,6 +274,21 @@ select:focus-visible {
   opacity: 0;
   transition: opacity 0.7s ease;
 }
+/* Directional vignette: desktop = strong left gradient for text legibility;
+   mobile = lighter, more centered so image stays visible on narrow viewport */
+.hero-vignette {
+  background:
+    linear-gradient(102deg, rgba(6,18,14,0.92) 0%, rgba(6,18,14,0.72) 28%, rgba(6,18,14,0.22) 56%, rgba(6,18,14,0.05) 100%),
+    linear-gradient(to top, rgba(6,18,14,0.65) 0%, rgba(6,18,14,0.08) 40%, transparent 62%);
+}
+@media (max-width: 1023px) {
+  .hero-vignette {
+    background:
+      linear-gradient(to bottom, rgba(6,18,14,0.55) 0%, rgba(6,18,14,0.1) 35%, rgba(6,18,14,0.1) 65%, rgba(6,18,14,0.72) 100%),
+      linear-gradient(to right, rgba(6,18,14,0.5) 0%, transparent 70%);
+  }
+}
+
 /* Off-screen video source — visually hidden but still loads & seeks */
 #hero-video-src {
   position: absolute;
@@ -303,7 +322,8 @@ select:focus-visible {
 
 /* Amber → green gradient on the accent word */
 .hero-gradient-text {
-  background: linear-gradient(125deg, #F2A719 0%, #2E9E3F 80%);
+  background: linear-gradient(125deg, #F5921E 0%, #1AADB8 55%, #6DC82A 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -312,6 +332,75 @@ select:focus-visible {
 /* Subtitle — fluid size, light weight */
 .hero-sub {
   font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+}
+
+/* ===== NAV ITEMS — scroll-driven entrance (same feel as title) ===== */
+.nav-anim {
+  opacity: 0;
+  transform: translateY(-14px);
+  filter: blur(6px);
+  will-change: opacity, transform, filter;
+}
+
+/* ===== CINEMATIC HERO — FULLY SCROLL-DRIVEN ===== */
+
+/* Title words: hidden by default, driven entirely by JS scroll */
+.hero-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(72px) rotateX(22deg);
+  filter: blur(14px);
+  will-change: transform, opacity, filter;
+}
+
+/* Gradient shimmer on accent word (only when visible) */
+@keyframes hero-shimmer {
+  0%, 100% { background-position: 0% center; }
+  50%       { background-position: 200% center; }
+}
+.hero-word--accent.is-revealed .hero-gradient-text {
+  animation: hero-shimmer 3.5s 0.4s ease-in-out infinite;
+}
+
+/* Scroll-progress amber line on left edge */
+.hero-progress-line {
+  position: absolute;
+  left: 0;
+  bottom: 12%;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(to top, #F5921E, rgba(245,146,30,0.25) 75%, transparent);
+  z-index: 15;
+  pointer-events: none;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 10px rgba(245,146,30,0.5);
+}
+
+/* Sub-headline wrapper: same blur+translate reveal as title */
+.hero-sub-wrap {
+  opacity: 0;
+  transform: translateY(72px);
+  filter: blur(10px);
+  will-change: transform, opacity, filter;
+}
+
+/* CTA items: initial hidden state */
+.hero-cta-item {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+}
+
+/* Scroll-to-explore pulse hint shown at page top */
+.hero-scroll-hint {
+  transition: opacity 0.4s ease;
+}
+.hero-scroll-hint .scroll-arrow {
+  animation: scroll-bounce 1.6s ease-in-out infinite;
+}
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50%       { transform: translateY(6px); opacity: 1; }
 }
 
 /* Trust row items */
@@ -366,9 +455,9 @@ select:focus-visible {
   left: 0; right: 0; top: 0; height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(242,167,25,0.18) 15%,
-    rgba(242,167,25,0.55) 50%,
-    rgba(242,167,25,0.18) 85%,
+    rgba(245,146,30,0.18) 15%,
+    rgba(245,146,30,0.55) 50%,
+    rgba(245,146,30,0.18) 85%,
     transparent 100%);
   animation: hf-scan 2.4s 1.3s cubic-bezier(0.4,0,0.6,1) forwards;
   opacity: 0;
@@ -423,8 +512,8 @@ select:focus-visible {
   border-radius: 50%;
   animation: hf-pulse 2.5s ease-in-out infinite;
 }
-.hf-dot--amber { background: #F2A719; animation-delay: 2s; }
-.hf-dot--green { background: #2E9E3F; animation-delay: 2.5s; }
+.hf-dot--amber { background: #F5921E; animation-delay: 2s; }
+.hf-dot--green { background: #6DC82A; animation-delay: 2.5s; }
 @keyframes hf-pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.35; }
@@ -499,7 +588,7 @@ select:focus-visible {
   gap: 2px;
 }
 .stat-value {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 3.75rem;
   font-weight: 800;
   color: var(--color-accent);
@@ -508,7 +597,7 @@ select:focus-visible {
 }
 @media (min-width: 1024px) { .stat-value { font-size: 5rem; } }
 .stat-suffix {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 2.25rem;
   font-weight: 700;
   color: var(--color-accent);
@@ -606,18 +695,18 @@ select:focus-visible {
 }
 
 .section-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
   font-size: clamp(2.1rem, 4vw, 3.25rem);
   line-height: 1.1;
   letter-spacing: -0.032em;
-  color: var(--color-ink);
+  color: #fff;
   text-align: center;
 }
 
 .section-subtitle {
   margin-top: 1.25rem;
-  color: #64748b;
+  color: rgba(255,255,255,0.38);
   font-size: clamp(1rem, 1.4vw, 1.1rem);
   line-height: 1.78;
   letter-spacing: 0.005em;
@@ -663,20 +752,20 @@ select:focus-visible {
   height: 10px;
   border-radius: 50%;
   background: var(--color-accent);
-  box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--color-border);
+  box-shadow: 0 0 0 3px #0A1A14, 0 0 0 4px rgba(245,146,30,0.3);
 }
 .cap-number {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
   font-size: clamp(1.6rem, 2.4vw, 2.1rem);
   letter-spacing: -0.03em;
   line-height: 1;
-  color: var(--color-ink);
+  color: #fff;
 }
 .cap-label {
   font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
-  color: #64748B;
+  color: rgba(255,255,255,0.38);
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.005em;
@@ -726,7 +815,7 @@ select:focus-visible {
 }
 
 .svc-headline {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(2.6rem, 5.5vw, 4.75rem);
   font-weight: 800;
   line-height: 1.07;
@@ -737,7 +826,7 @@ select:focus-visible {
 /* "integrales" — amber-to-green gradient */
 .svc-hl-gradient {
   font-style: normal;
-  background: linear-gradient(130deg, #F2A719 10%, #2E9E3F 90%);
+  background: linear-gradient(130deg, #F5921E 10%, #1AADB8 55%, #6DC82A 95%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -785,50 +874,149 @@ select:focus-visible {
 }
 .scroll-cards-outer::before {
   left: 0;
-  background: linear-gradient(to right, #F8FAFC 0%, transparent 100%);
+  background: linear-gradient(to right, #06120E, transparent);
 }
 .scroll-cards-outer::after {
   right: 0;
-  background: linear-gradient(to left, #F8FAFC 0%, transparent 100%);
+  background: linear-gradient(to left, #06120E, transparent);
 }
+
+/* ===== Service Cards — dark bento premium ===== */
+
+/* Section title on dark bg */
+.svc-headline { color: #fff; }
+.svc-lead     { color: rgba(255,255,255,0.42); }
 
 /* Individual card */
 .scroll-card {
-  flex: 0 0 290px;
-  height: 450px;
+  flex: 0 0 300px;
+  height: 430px;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
   scroll-snap-align: start;
-  box-shadow: 0 4px 24px rgba(6,18,14,0.13), 0 1px 4px rgba(6,18,14,0.07);
-  transition: transform 0.45s ease, box-shadow 0.45s ease;
+  background: #0D1F18;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow:
+    0 0 0 0.5px rgba(245,146,30,0.1),
+    0 8px 32px rgba(0,0,0,0.5);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
   will-change: transform;
+  transform-style: preserve-3d;
+  --cx: 50%; --cy: 50%;
 }
-@media (min-width: 640px) {
-  .scroll-card { flex: 0 0 320px; height: 490px; }
+@media (min-width: 640px)  { .scroll-card { flex: 0 0 320px; height: 450px; } }
+@media (min-width: 1024px) { .scroll-card { flex: 0 0 350px; height: 460px; } }
+
+/* Spotlight that follows cursor */
+.scroll-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 200px at var(--cx) var(--cy),
+    rgba(245,146,30,0.18) 0%, rgba(109,200,42,0.06) 50%, transparent 70%);
+  opacity: 0;
+  z-index: 4;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
-@media (min-width: 1024px) {
-  .scroll-card { flex: 0 0 346px; height: 510px; }
+.scroll-card:hover::before { opacity: 1; }
+
+/* Hover state */
+.scroll-card:hover {
+  border-color: rgba(245,146,30,0.3);
+  box-shadow:
+    0 0 0 1px rgba(245,146,30,0.28),
+    0 28px 72px rgba(0,0,0,0.65),
+    0 0 60px rgba(245,146,30,0.09);
 }
 
-/* Card image */
+/* Corner frame brackets (always visible, brighter on hover) */
+.sc-corner {
+  position: absolute;
+  width: 18px; height: 18px;
+  border: 1.5px solid rgba(245,146,30,0.22);
+  pointer-events: none;
+  z-index: 6;
+  transition: border-color 0.4s ease;
+}
+.sc-corner--tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.sc-corner--tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+.sc-corner--bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+.sc-corner--br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+.scroll-card:hover .sc-corner { border-color: rgba(245,146,30,0.75); }
+
+/* Animated scan line (injected by JS, staggered per card) */
+.sc-scan-line {
+  position: absolute;
+  left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(245,146,30,0.5) 25%,
+    rgba(245,146,30,0.65) 50%,
+    rgba(245,146,30,0.5) 75%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  top: 0;
+}
+
+/* Ghost number watermark */
+.sc-ghost-num {
+  position: absolute;
+  bottom: -16px; right: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 7.5rem;
+  line-height: 1;
+  color: rgba(255,255,255,0.04);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  letter-spacing: -0.04em;
+  transition: color 0.4s ease;
+}
+.scroll-card:hover .sc-ghost-num { color: rgba(245,146,30,0.07); }
+
+/* Fine grid texture over image */
+.sc-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.032) 1px, transparent 1px);
+  background-size: 26px 26px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Card image — visible texture behind content */
 .scroll-card-img {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s ease;
-  filter: saturate(0.8) contrast(1.1) brightness(0.82);
+  transition: transform 0.08s linear, opacity 0.4s ease, filter 0.4s ease;
+  filter: saturate(0.18) contrast(1.1) brightness(0.52);
+  opacity: 0.82;
+  z-index: 0;
+  will-change: transform;
 }
-.scroll-card:hover .scroll-card-img { transform: scale(1.06); }
+.scroll-card:hover .scroll-card-img {
+  opacity: 0.92;
+  filter: saturate(0.32) contrast(1.1) brightness(0.62);
+}
 
-/* Gradient overlay: dark bottom (text) + subtle dark top (number/tag) */
+/* Gradient overlay — lighter to let image breathe */
 .scroll-card-overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background:
-    linear-gradient(to top, rgba(6,18,14,0.94) 0%, rgba(6,18,14,0.45) 42%, rgba(6,18,14,0.04) 66%, transparent 82%),
-    linear-gradient(to bottom, rgba(6,18,14,0.52) 0%, transparent 30%);
+    linear-gradient(to top, rgba(6,18,14,0.92) 0%, rgba(6,18,14,0.55) 38%, rgba(6,18,14,0.18) 62%, transparent 80%),
+    linear-gradient(to bottom, rgba(6,18,14,0.45) 0%, transparent 22%);
 }
 
 /* Inner layout */
@@ -839,6 +1027,7 @@ select:focus-visible {
   flex-direction: column;
   justify-content: space-between;
   padding: 18px 20px;
+  z-index: 7;
 }
 
 .scroll-card-top {
@@ -861,8 +1050,8 @@ select:focus-visible {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent);
-  background: rgba(242,167,25,0.13);
-  border: 1px solid rgba(242,167,25,0.30);
+  background: rgba(245,146,30,0.13);
+  border: 1px solid rgba(245,146,30,0.30);
   padding: 3px 10px;
   border-radius: 100px;
   backdrop-filter: blur(8px);
@@ -892,7 +1081,7 @@ select:focus-visible {
 .scroll-card-icon-wrap svg { width: 18px; height: 18px; }
 
 .scroll-card-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 17px;
   font-weight: 700;
   color: white;
@@ -941,20 +1130,20 @@ select:focus-visible {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: white;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 2px 14px rgba(6,18,14,0.1);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 2px 14px rgba(0,0,0,0.3);
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: var(--color-ink);
+    color: #fff;
     transition: all 0.2s ease;
   }
   .scroll-nav-btn:hover {
     background: var(--color-accent);
-    color: white;
+    color: #fff;
     border-color: var(--color-accent);
-    box-shadow: 0 4px 20px rgba(242,167,25,0.4);
+    box-shadow: 0 4px 20px rgba(245,146,30,0.4);
   }
   .scroll-nav-btn svg { width: 16px; height: 16px; }
   .scroll-nav-prev { left: 14px; }
@@ -964,7 +1153,7 @@ select:focus-visible {
 /* Scroll progress */
 .scroll-progress-track {
   height: 2px;
-  background: rgba(6,18,14,0.08);
+  background: rgba(255,255,255,0.1);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -972,7 +1161,7 @@ select:focus-visible {
   height: 100%;
   width: 15%;
   min-width: 40px;
-  background: var(--color-primary);
+  background: var(--color-accent);
   border-radius: 2px;
   transition: width 0.12s ease;
 }
@@ -1020,9 +1209,9 @@ select:focus-visible {
 .sector-chip-dark:hover {
   color: #fff;
   transform: translateY(-3px) scale(1.06);
-  background-color: rgba(242,167,25,0.1);
-  border-color: rgba(242,167,25,0.5);
-  box-shadow: 0 0 28px rgba(242,167,25,0.22), 0 8px 24px rgba(0,0,0,0.35);
+  background-color: rgba(245,146,30,0.1);
+  border-color: rgba(245,146,30,0.5);
+  box-shadow: 0 0 28px rgba(245,146,30,0.22), 0 8px 24px rgba(0,0,0,0.35);
 }
 .sector-chip-dark:hover::after {
   animation: chip-glint 0.55s ease forwards;
@@ -1030,9 +1219,9 @@ select:focus-visible {
 /* Auto-active state (cycled by JS) */
 .sector-chip-dark.chip-active {
   color: #fff;
-  border-color: rgba(242,167,25,0.55);
-  background-color: rgba(242,167,25,0.09);
-  box-shadow: 0 0 20px rgba(242,167,25,0.2), inset 0 0 10px rgba(242,167,25,0.04);
+  border-color: rgba(245,146,30,0.55);
+  background-color: rgba(245,146,30,0.09);
+  box-shadow: 0 0 20px rgba(245,146,30,0.2), inset 0 0 10px rgba(245,146,30,0.04);
 }
 .sector-chip-dark.chip-active::after {
   animation: chip-glint 0.65s 0.05s ease forwards;
@@ -1070,7 +1259,19 @@ select:focus-visible {
   align-items: center;
   justify-content: center;
 }
-.why-icon svg { width: 1.2rem; height: 1.2rem; }
+.why-icon-dark {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 0.65rem;
+  background-color: rgba(245,146,30,0.1);
+  border: 1px solid rgba(245,146,30,0.25);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.why-icon svg, .why-icon-dark svg { width: 1.2rem; height: 1.2rem; }
 
 /* ===== Ratio panel (nosotros visual) ===== */
 .ratio-panel {
@@ -1122,7 +1323,7 @@ select:focus-visible {
   height: 3.25rem;
   margin: 0 auto 1rem;
   border-radius: 0.85rem;
-  background-color: rgba(242,167,25,0.18);
+  background-color: rgba(245,146,30,0.18);
   color: var(--color-accent);
   display: flex;
   align-items: center;
@@ -1140,35 +1341,36 @@ select:focus-visible {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #475569;
+  color: rgba(255,255,255,0.5);
   margin-bottom: 0.5rem;
 }
 .form-input {
   width: 100%;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 0.6rem;
   padding: 0.7rem 0.95rem;
   font-family: 'Inter', sans-serif;
   font-size: 0.9375rem;
-  color: #1E293B;
-  background-color: #fff;
+  color: #fff;
+  background-color: rgba(255,255,255,0.05);
   letter-spacing: 0.005em;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 .form-input:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(242,167,25,0.15);
+  box-shadow: 0 0 0 3px rgba(245,146,30,0.15);
+  background-color: rgba(255,255,255,0.08);
   outline: none;
 }
 .form-input::placeholder {
-  color: #b0bec5;
+  color: rgba(255,255,255,0.22);
   font-weight: 400;
 }
 
 .form-success-msg {
-  background-color: #ECFDF5;
-  color: #047857;
-  border: 1px solid #A7F3D0;
+  background-color: rgba(109,200,42,0.12);
+  color: #86e840;
+  border: 1px solid rgba(109,200,42,0.35);
   border-radius: 0.6rem;
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
@@ -1181,18 +1383,24 @@ select:focus-visible {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  background-color: #fff;
-  border: 1px solid var(--color-border);
+  background-color: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 0.85rem;
   padding: 1.1rem 1.25rem;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+.contact-info-card:hover {
+  background-color: rgba(255,255,255,0.07);
+  border-color: rgba(245,146,30,0.2);
 }
 .contact-info-icon {
   width: 2.5rem;
   height: 2.5rem;
   flex-shrink: 0;
   border-radius: 0.6rem;
-  background-color: #F1F5F9;
-  color: var(--color-primary);
+  background-color: rgba(245,146,30,0.1);
+  border: 1px solid rgba(245,146,30,0.2);
+  color: var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1225,7 +1433,7 @@ a:hover .logo-mark svg { transform: rotate(-6deg) scale(1.05); }
 
 /* ===== Why-items (nosotros) ===== */
 .why-item h3 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.015em;
@@ -1284,7 +1492,7 @@ a:hover .logo-mark svg { transform: rotate(-6deg) scale(1.05); }
 
 /* ===== Scroll card title — tighter ===== */
 .scroll-card-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 17px;
   font-weight: 700;
   color: white;
@@ -1310,5 +1518,395 @@ a:hover .logo-mark svg { transform: rotate(-6deg) scale(1.05); }
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE — comprehensive overrides
+   ============================================================ */
+
+/* ---- Global button touch targets ---- */
+.btn-accent, .btn-ghost, .btn-light {
+  min-height: 48px;
+}
+
+/* ---- Select dropdown dark styling ---- */
+select.form-input {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem 1rem;
+  padding-right: 2.5rem;
+}
+select.form-input option {
+  background-color: #0A1A14;
+  color: #fff;
+}
+
+/* ---- Sector chips minimum touch target ---- */
+.sector-chip, .sector-chip-dark {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---- Hero mobile overlay: stronger uniform dark on small screens ---- */
+@media (max-width: 639px) {
+  .hero-sticky::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(6,18,14,0.52);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+/* ---- Hero mobile: smaller heading, full-width text ---- */
+@media (max-width: 639px) {
+  .hero-h1 {
+    font-size: clamp(2.2rem, 11vw, 2.8rem);
+  }
+  .hero-text-col {
+    max-width: 100%;
+  }
+  .hero-sub {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+  .hero-content-wrap {
+    padding-bottom: 5rem;
+  }
+  /* HUD corner tags hidden on mobile — too cramped */
+  .hf-tag { display: none; }
+  /* Smaller corner brackets on mobile */
+  .hf-c { width: 22px; height: 22px; }
+  .hf-tl { top: 0.75rem; left: 0.75rem; }
+  .hf-tr { top: 0.75rem; right: 0.75rem; }
+  .hf-bl { bottom: 0.75rem; left: 0.75rem; }
+  .hf-br { bottom: 0.75rem; right: 0.75rem; }
+  /* Beam-wrap full width in stacked flex column */
+  .beam-wrap { display: block; width: 100%; }
+  .beam-wrap a { width: 100%; justify-content: center; }
+  /* Ghost button full width */
+  .hero-content-wrap .btn-ghost { width: 100%; }
+}
+
+/* ---- Services headline on mobile ---- */
+@media (max-width: 639px) {
+  .svc-headline {
+    font-size: clamp(2rem, 10vw, 2.6rem);
+    margin-bottom: 1.25rem;
+  }
+  .svc-lead {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+}
+
+/* ---- Service cards: slightly taller on small phones ---- */
+@media (max-width: 479px) {
+  .scroll-card {
+    flex: 0 0 270px;
+    height: 400px;
+  }
+}
+
+/* ---- Nosotros ratio-panel: cap height instead of 1:1 square on mobile ---- */
+@media (max-width: 1023px) {
+  .ratio-panel {
+    aspect-ratio: unset;
+    height: 300px;
+  }
+}
+
+/* ---- Proof metrics: smaller numbers on very small screens ---- */
+@media (max-width: 479px) {
+  .stat-value  { font-size: 3rem; }
+  .stat-suffix { font-size: 1.75rem; }
+  .proof-metrics { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+/* ---- Capability strip: tighten on xs ---- */
+@media (max-width: 479px) {
+  .diagram-strip {
+    gap: 1.5rem 1rem;
+  }
+  .cap-number {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---- CTA banner: stack properly on mobile ---- */
+@media (max-width: 639px) {
+  /* text already stacks via flex-col lg:flex-row in HTML */
+  .btn-light { width: 100%; }
+}
+
+/* ---- Contact grid: stack info cards below form on mobile ---- */
+@media (max-width: 1023px) {
+  .contact-info-card {
+    padding: 0.9rem 1rem;
+  }
+}
+
+/* ---- Form inputs: proper touch height ---- */
+.form-input {
+  min-height: 48px;
+}
+textarea.form-input {
+  min-height: unset;
+}
+
+/* ---- Footer: readable spacing on xs ---- */
+@media (max-width: 479px) {
+  .footer-link { line-height: 2.4; }
+  footer .max-w-7xl { padding-top: 3rem; padding-bottom: 3rem; }
+}
+
+/* ---- Section titles: fluid on very small screens ---- */
+@media (max-width: 479px) {
+  .section-title {
+    font-size: clamp(1.85rem, 9vw, 2.5rem);
+  }
+  .section-subtitle {
+    font-size: 0.9375rem;
+  }
+}
+
+/* ---- Certificaciones: single column on xs ---- */
+@media (max-width: 479px) {
+  .cert-card { padding: 1.25rem; }
+}
+
+/* ---- Nosotros why-items: slightly smaller on mobile ---- */
+@media (max-width: 639px) {
+  .why-item { gap: 0.75rem; }
+  .why-icon-dark { width: 2.25rem; height: 2.25rem; }
+}
+
+/* ---- Scroll hints / progress: touch-friendly indicator ---- */
+@media (max-width: 1023px) {
+  .scroll-progress-track {
+    height: 3px;
+  }
+  .scroll-cards-track {
+    padding-bottom: 28px;
+  }
+}
+
+/* ---- Mobile menu: larger tap areas ---- */
+.mobile-nav-link {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+/* ============================================================
+   MOBILE — ANIMATIONS & iOS FIXES
+   ============================================================ */
+
+/* --- dvh units: fix iOS Safari viewport height with dynamic browser chrome --- */
+.hero-sequence {
+  height: 500dvh;
+}
+.hero-sticky {
+  height: 100dvh;
+}
+
+/* --- Mobile: same hero height as desktop — image sequence covers full scroll --- */
+@media (max-width: 1023px) {
+  .hero-sequence { height: 500dvh; }
+}
+
+/* --- Mobile: kill will-change to save GPU memory --- */
+@media (max-width: 1023px) {
+  .hero-word,
+  .hero-sub-wrap,
+  .hero-cta-item,
+  .nav-anim { will-change: auto; }
+}
+
+/* --- Safe-area insets: respect iOS home indicator and Dynamic Island --- */
+@media (max-width: 639px) {
+  .hero-content-wrap {
+    padding-bottom: max(5.5rem, calc(4rem + env(safe-area-inset-bottom)));
+    padding-top: max(5rem, calc(4rem + env(safe-area-inset-top)));
+  }
+}
+
+/* --- Mobile hero: full-width CTAs with safe-area aware layout --- */
+@media (max-width: 639px) {
+  #hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  #hero-cta-primary,
+  #hero-cta-ghost {
+    width: 100%;
+  }
+  .beam-wrap { width: 100%; }
+  .beam-wrap a { width: 100%; justify-content: center; }
+  #hero-cta-ghost { text-align: center; justify-content: center; }
+}
+
+/* --- Scroll hint: always centered, no overflow clipping --- */
+.hero-scroll-hint {
+  z-index: 30;
+  bottom: max(2rem, calc(1.5rem + env(safe-area-inset-bottom)));
+}
+
+
+/* --- Mobile: reduce section padding on xs --- */
+@media (max-width: 479px) {
+  section { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+/* --- Service cards: momentum scroll on mobile --- */
+@media (max-width: 1023px) {
+  .scroll-cards-track {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+  }
+}
+
+/* --- Sector chips: wrapping flex on very small screens --- */
+@media (max-width: 479px) {
+  #sector-chips-wrap {
+    gap: 0.5rem;
+  }
+  .sector-chip-dark {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.85rem;
+    min-height: 40px;
+  }
+}
+
+/* --- Form: stack two-column inputs on mobile --- */
+@media (max-width: 639px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* --- Why-items grid: single column on mobile --- */
+@media (max-width: 479px) {
+  .why-grid { grid-template-columns: 1fr !important; }
+}
+
+/* --- Stat tiles (nosotros): better layout on mobile --- */
+@media (max-width: 1023px) {
+  .stat-tile { padding: 1rem; }
+}
+
+/* --- Header mobile: safe-area top --- */
+@media (max-width: 1023px) {
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* --- Footer: safe-area bottom --- */
+footer {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* --- Mobile menu overlay: full safe-area coverage --- */
+#mobile-menu {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* --- AOS animations: shorter on mobile for snappier feel --- */
+@media (max-width: 639px) {
+  [data-aos] {
+    transition-duration: 500ms !important;
+  }
+}
+
+/* ================================================================
+   FINAL MOBILE HARDENING — applied last to win specificity
+   ================================================================ */
+
+/* Overflow-wrap safety for all long-text elements */
+.section-title,
+.svc-headline,
+.cap-label,
+.stat-desc,
+.section-subtitle,
+.svc-lead,
+.scroll-card-title,
+.scroll-card-desc,
+.hero-h1 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* stat-desc: tighten tracking on very small screens */
+@media (max-width: 479px) {
+  .stat-desc {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* svc-headline: scale down further on xs */
+@media (max-width: 399px) {
+  .svc-headline {
+    font-size: clamp(1.65rem, 9vw, 2rem);
+  }
+}
+
+/* Section vertical padding override for xs — use IDs to beat Tailwind class specificity */
+@media (max-width: 479px) {
+  #servicios,
+  #sectores,
+  #nosotros,
+  #certificaciones,
+  #contacto {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+}
+
+/* Contact form: stack two-column grids on mobile */
+@media (max-width: 639px) {
+  #contacto .grid.sm\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Nosotros ratio-panel: sensible height on mobile */
+@media (max-width: 639px) {
+  .ratio-panel {
+    height: 260px;
+  }
+}
+
+/* Hero h1 on very small screens */
+@media (max-width: 374px) {
+  .hero-h1 {
+    font-size: clamp(2rem, 12vw, 2.4rem);
+  }
+}
+
+/* Scroll cards outer: prevent any possible bleed on iOS */
+.scroll-cards-outer {
+  max-width: 100vw;
+}
+
+/* Sector chips: wrap gracefully, never overflow */
+#sector-chips-wrap {
+  max-width: 100%;
+}
+
+/* Mobile nav links: larger touch target */
+@media (max-width: 1023px) {
+  .mobile-nav-link {
+    min-height: 52px;
   }
 }

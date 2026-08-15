@@ -1,0 +1,12 @@
+{
+  "name": "solaris-energy-solutions",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o css/tailwind.css --minify",
+    "dev": "tailwindcss -i src/input.css -o css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
