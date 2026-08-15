@@ -52,7 +52,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   background-color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -67,7 +67,7 @@ body {
 }
 
 h1, h2, h3, h4, .font-heading {
-  font-family: 'Barlow Condensed', 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: 'kern' 1;
 }
 
@@ -588,7 +588,7 @@ select:focus-visible {
   gap: 2px;
 }
 .stat-value {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 3.75rem;
   font-weight: 800;
   color: var(--color-accent);
@@ -597,7 +597,7 @@ select:focus-visible {
 }
 @media (min-width: 1024px) { .stat-value { font-size: 5rem; } }
 .stat-suffix {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 2.25rem;
   font-weight: 700;
   color: var(--color-accent);
@@ -695,7 +695,7 @@ select:focus-visible {
 }
 
 .section-title {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   font-size: clamp(2.1rem, 4vw, 3.25rem);
   line-height: 1.1;
@@ -755,7 +755,7 @@ select:focus-visible {
   box-shadow: 0 0 0 3px #0A1A14, 0 0 0 4px rgba(245,146,30,0.3);
 }
 .cap-number {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   font-size: clamp(1.6rem, 2.4vw, 2.1rem);
   letter-spacing: -0.03em;
@@ -763,7 +763,7 @@ select:focus-visible {
   color: #fff;
 }
 .cap-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.8rem;
   color: rgba(255,255,255,0.38);
   font-weight: 500;
@@ -815,7 +815,7 @@ select:focus-visible {
 }
 
 .svc-headline {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: clamp(2.6rem, 5.5vw, 4.75rem);
   font-weight: 800;
   line-height: 1.07;
@@ -966,7 +966,7 @@ select:focus-visible {
 .sc-ghost-num {
   position: absolute;
   bottom: -16px; right: 12px;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 800;
   font-size: 7.5rem;
   line-height: 1;
@@ -1081,7 +1081,7 @@ select:focus-visible {
 .scroll-card-icon-wrap svg { width: 18px; height: 18px; }
 
 .scroll-card-title {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 17px;
   font-weight: 700;
   color: white;
@@ -1349,7 +1349,7 @@ select:focus-visible {
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 0.6rem;
   padding: 0.7rem 0.95rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.9375rem;
   color: #fff;
   background-color: rgba(255,255,255,0.05);
@@ -1433,7 +1433,7 @@ a:hover .logo-mark svg { transform: rotate(-6deg) scale(1.05); }
 
 /* ===== Why-items (nosotros) ===== */
 .why-item h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.015em;
@@ -1492,7 +1492,7 @@ a:hover .logo-mark svg { transform: rotate(-6deg) scale(1.05); }
 
 /* ===== Scroll card title — tighter ===== */
 .scroll-card-title {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 17px;
   font-weight: 700;
   color: white;
@@ -1914,11 +1914,11 @@ footer {
 
 /* ===== Solar card — green-tinted granja solar look ===== */
 .scroll-card--solar .scroll-card-img {
-  filter: saturate(1.6) hue-rotate(75deg) brightness(0.48) contrast(1.15);
-  opacity: 0.95;
+  filter: saturate(1.5) hue-rotate(75deg) brightness(0.65) contrast(1.05);
+  opacity: 1;
 }
 .scroll-card--solar:hover .scroll-card-img {
-  filter: saturate(1.8) hue-rotate(75deg) brightness(0.58) contrast(1.1);
+  filter: saturate(1.7) hue-rotate(75deg) brightness(0.78) contrast(1.0);
   opacity: 1;
 }
 .scroll-card--solar .scroll-card-overlay {

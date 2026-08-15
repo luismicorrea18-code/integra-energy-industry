@@ -19,8 +19,8 @@ module.exports = {
         ink: '#06120E'
       },
       fontFamily: {
-        heading: ['"Barlow Condensed"', '"Space Grotesk"', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
         mono: ['"IBM Plex Mono"', 'monospace']
       },
       boxShadow: {
