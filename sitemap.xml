@@ -4,12 +4,12 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
-    <loc>https://www.solarisenergyco.com/</loc>
+    <loc>https://www.solarisenergysolution.com/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://www.solarisenergyco.com/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.solarisenergyco.com/"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://www.solarisenergysolution.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.solarisenergysolution.com/"/>
 
     <!-- Hero OG image -->
     <image:image>
@@ -69,28 +69,28 @@
   </url>
 
   <url>
-    <loc>https://www.solarisenergyco.com/#servicios</loc>
+    <loc>https://www.solarisenergysolution.com/#servicios</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.solarisenergyco.com/#sectores</loc>
+    <loc>https://www.solarisenergysolution.com/#sectores</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.solarisenergyco.com/#nosotros</loc>
+    <loc>https://www.solarisenergysolution.com/#nosotros</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.solarisenergyco.com/#contacto</loc>
+    <loc>https://www.solarisenergysolution.com/#contacto</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

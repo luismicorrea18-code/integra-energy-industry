@@ -30,8 +30,8 @@ Solaris Energy Solutions S.A.S. es una empresa de ingeniería con sede en Barran
 - **Sede principal**: Barranquilla, Atlántico, Colombia
 - **Cobertura**: Nacional — Barranquilla, Bogotá, Medellín, Cartagena, Cali, Santa Marta
 - **Teléfono**: +57 300 123 4567
-- **Correo**: info@solarisenergyco.com
-- **Web**: https://www.solarisenergyco.com/
+- **Correo**: info@solarisenergysolution.com
+- **Web**: https://www.solarisenergysolution.com/
 
 ## Normativa y certificaciones
 
@@ -58,4 +58,4 @@ Una empresa industrial puede reducir entre 30% y 80% de su factura eléctrica co
 
 ## Páginas del sitio
 
-- [Inicio](https://www.solarisenergyco.com/): Presentación general, servicios, sectores, certificaciones y contacto.
+- [Inicio](https://www.solarisenergysolution.com/): Presentación general, servicios, sectores, certificaciones y contacto.

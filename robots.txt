@@ -3,7 +3,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://www.solarisenergyco.com/sitemap.xml
+Sitemap: https://www.solarisenergysolution.com/sitemap.xml
 
 # Google
 User-agent: Googlebot
