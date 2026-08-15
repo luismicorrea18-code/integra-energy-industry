@@ -1717,9 +1717,9 @@ textarea.form-input {
   height: 100dvh;
 }
 
-/* --- Mobile: same hero height as desktop — image sequence covers full scroll --- */
+/* --- Mobile: shorter hero scroll so user doesn't feel stuck --- */
 @media (max-width: 1023px) {
-  .hero-sequence { height: 500dvh; }
+  .hero-sequence { height: 300dvh; }
 }
 
 /* --- Mobile: kill will-change to save GPU memory --- */
@@ -1771,7 +1771,8 @@ textarea.form-input {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
-    touch-action: pan-x;
+    /* pan-x pan-y: lets browser distinguish horiz swipe (cards) from vert swipe (page scroll) */
+    touch-action: pan-x pan-y;
   }
 }
 
